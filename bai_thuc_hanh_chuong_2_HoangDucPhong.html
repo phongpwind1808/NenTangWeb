@@ -5,7 +5,156 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    table{
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2; /* Màu nền xám nhạt */
+        font-weight: bold; /* Chữ đậm */
+        text-align: center; /* Căn giữa */
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9; /* Hàng chẵn màu khác */
+    }
+    tr:hover {
+        background-color: #f5f5f5; /* Đổi màu khi rê chuột */
+    }
+    td:first-child {
+        text-align: center; /* Cột đầu căn giữa (STT) */
+    }
+    td:last-child {
+        text-align: right; /* Cột cuối căn phải (số liệu) */
+    }
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    table {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    th {
+        font-size: 16px;
+        letter-spacing: 0.5px; /* Giãn chữ */
+    }
+    /* Phối màu xanh */
+    th {
+        background-color: #4ea5d0;
+        color: white;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    tr:hover {
+        background-color: #e8f5e8;
+    }
+    table {
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Đổ bóng */
+        border-radius: 8px; /* Bo góc */
+        overflow: hidden; /* Ẩn phần thừa */
+    }
+</style>
 <body>
-    
+    <header>
+        <h1>Bài thực hành chương 2</h1>
+    </header>
+    <main>
+        <h2>Xây dựng form thêm sinh viên</h2>
+        <div id="form-container" style="display: block;">
+            <form id="add-student-form">
+                <div>
+                    <label for="maSV">Mã sinh viên</label>
+                    <input type="text" id="maSV" name="maSV" required>
+                </div>
+                <div>
+                    <label for="hoTen">Họ tên</label>
+                    <input type="text" id="hoTen" name="hoTen" required>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="gioiTinh">Giới tính</label>
+                    <input type="radio" id="nam" name="gioiTinh" value="Nam">
+                    <label for="nam">Nam</label>
+                    <input type="radio" id="nu" name="gioiTinh" value="Nữ">
+                    <label for="nu">Nữ</label>
+                </div>
+                <div>
+                    <label for="ngaySinh">Ngày sinh</label>
+                    <input type="date" id="ngaySinh" name="ngaySinh" required>
+                </div>
+                <div>
+                    <button type="submit">Thêm sinh viên</button>
+                </div>
+            </form>
+        </div>
+
+        <h2>Tạo bảng hiển thị danh sách sinh viên</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Mã SV</th>
+                    <th>Họ Tên</th>
+                    <th>Email</th>
+                    <th>Giới tính</th>
+                    <th>Ngày sinh</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>101</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>nguyenvana@gmail.com</td>
+                    <td>Nam</td>
+                    <td>1990-01-01</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>102</td>
+                    <td>Nguyễn Văn B</td>
+                    <td>nguyenvanb@gmail.com</td>
+                    <td>Nữ</td>
+                    <td>1990-01-01</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>103</td>
+                    <td>Nguyễn Văn C</td>
+                    <td>nguyenvanc@gmail.com</td>
+                    <td>Nam</td>
+                    <td>1990-01-01</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>104</td>
+                    <td>Nguyễn Văn D</td>
+                    <td>nguyenvand@gmail.com</td>
+                    <td>Nữ</td>
+                    <td>1990-01-01</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>105</td>
+                    <td>Nguyễn Văn E</td>
+                    <td>nguyenvane@gmail.com</td>
+                    <td>Nam</td>
+                    <td>1990-01-01</td>
+                </tr>
+            </tbody>            
+        </table>
+    </main>
+    <footer>
+
+    </footer>
 </body>
 </html>

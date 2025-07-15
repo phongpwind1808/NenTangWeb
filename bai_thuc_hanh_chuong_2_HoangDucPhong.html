@@ -59,6 +59,33 @@
         border-radius: 8px; /* Bo góc */
         overflow: hidden; /* Ẩn phần thừa */
     }
+    
+    /* CSS cho button Sửa/Xóa */
+    .btn {
+        display: inline-block;
+        padding: 8px 15px;
+        margin: 0 5px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-size: 12px;
+        color: white;
+    }
+    
+    .btn-edit {
+        background-color: #28a745;
+    }
+    
+    .btn-edit:hover {
+        background-color: #218838;
+    }
+    
+    .btn-delete {
+        background-color: #dc3545;
+    }
+    
+    .btn-delete:hover {
+        background-color: #c82333;
+    }
 </style>
 <body>
     <header>
@@ -67,28 +94,28 @@
     <main>
         <h2>Xây dựng form thêm sinh viên</h2>
         <div id="form-container" style="display: block;">
-            <form id="add-student-form">
+            <form id="add-student-form" style="background-color:#c5e4f4; display: flex; flex-direction: column; gap: 10px; padding: 20px; border-radius: 10px;">
                 <div>
-                    <label for="maSV">Mã sinh viên</label>
+                    <label for="maSV">Mã sinh viên:</label>
                     <input type="text" id="maSV" name="maSV" required>
                 </div>
                 <div>
-                    <label for="hoTen">Họ tên</label>
+                    <label for="hoTen">Họ tên:</label>
                     <input type="text" id="hoTen" name="hoTen" required>
                 </div>
                 <div>
-                    <label for="email">Email</label>
+                    <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required>
                 </div>
                 <div>
-                    <label for="gioiTinh">Giới tính</label>
+                    <label for="gioiTinh">Giới tính:</label>
                     <input type="radio" id="nam" name="gioiTinh" value="Nam">
                     <label for="nam">Nam</label>
                     <input type="radio" id="nu" name="gioiTinh" value="Nữ">
                     <label for="nu">Nữ</label>
                 </div>
                 <div>
-                    <label for="ngaySinh">Ngày sinh</label>
+                    <label for="ngaySinh">Ngày sinh:</label>
                     <input type="date" id="ngaySinh" name="ngaySinh" required>
                 </div>
                 <div>
@@ -107,6 +134,7 @@
                     <th>Email</th>
                     <th>Giới tính</th>
                     <th>Ngày sinh</th>
+                    <th>Hành động</th>
                 </tr>
             </thead>
             <tbody>
@@ -117,6 +145,10 @@
                     <td>nguyenvana@gmail.com</td>
                     <td>Nam</td>
                     <td>1990-01-01</td>
+                    <td>
+                        <a href="https://www.google.com" class="btn btn-edit">Sửa</a>
+                        <a href="https://www.google.com" class="btn btn-delete">Xóa</a>
+                    </td>
                 </tr>
                 <tr>
                     <td>2</td>
@@ -125,6 +157,10 @@
                     <td>nguyenvanb@gmail.com</td>
                     <td>Nữ</td>
                     <td>1990-01-01</td>
+                    <td>
+                        <a href="https://www.google.com" class="btn btn-edit">Sửa</a>
+                        <a href="https://www.google.com" class="btn btn-delete">Xóa</a>
+                    </td>
                 </tr>
                 <tr>
                     <td>3</td>
@@ -133,6 +169,10 @@
                     <td>nguyenvanc@gmail.com</td>
                     <td>Nam</td>
                     <td>1990-01-01</td>
+                    <td>
+                        <a href="https://www.google.com" class="btn btn-edit">Sửa</a>
+                        <a href="https://www.google.com" class="btn btn-delete">Xóa</a>
+                    </td>
                 </tr>
                 <tr>
                     <td>4</td>
@@ -141,6 +181,10 @@
                     <td>nguyenvand@gmail.com</td>
                     <td>Nữ</td>
                     <td>1990-01-01</td>
+                    <td>
+                        <a href="https://www.google.com" class="btn btn-edit">Sửa</a>
+                        <a href="https://www.google.com" class="btn btn-delete">Xóa</a>
+                    </td>
                 </tr>
                 <tr>
                     <td>5</td>
@@ -149,6 +193,10 @@
                     <td>nguyenvane@gmail.com</td>
                     <td>Nam</td>
                     <td>1990-01-01</td>
+                    <td>
+                        <a href="https://www.google.com" class="btn btn-edit">Sửa</a>
+                        <a href="https://www.google.com" class="btn btn-delete">Xóa</a>
+                    </td>
                 </tr>
             </tbody>            
         </table>

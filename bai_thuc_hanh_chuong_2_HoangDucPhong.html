@@ -10,9 +10,10 @@
     <header>
         <h1>Bài thực hành chương 2</h1>
     </header>
+    <hr>
     <main>
         <h2>Xây dựng form thêm sinh viên</h2>
-        <div id="form-container" style="display: block;">
+        <div id="form-container">
             <form id="add-student-form" ">
                 <div>
                     <label for="maSV">Mã sinh viên:</label>
@@ -46,7 +47,7 @@
                 </div>
             </form>
         </div>
-
+        <hr>
         <h2>Tạo bảng hiển thị danh sách sinh viên</h2>
         <table>
             <thead>
@@ -69,8 +70,8 @@
                     <td>Nam</td>
                     <td>1990-01-01</td>
                     <td>
-                        <a href="https://www.google.com" class="btn btn-edit">Sửa</a>
-                        <a href="https://www.google.com" class="btn btn-delete">Xóa</a>
+                        <a href="https://www.google.com">Sửa</a>
+                        <a href="https://www.google.com">Xóa</a>
                     </td>
                 </tr>
                 <tr>
@@ -81,8 +82,8 @@
                     <td>Nữ</td>
                     <td>1990-01-01</td>
                     <td>
-                        <a href="https://www.google.com" class="btn btn-edit">Sửa</a>
-                        <a href="https://www.google.com" class="btn btn-delete">Xóa</a>
+                        <a href="https://www.google.com">Sửa</a>
+                        <a href="https://www.google.com">Xóa</a>
                     </td>
                 </tr>
                 <tr>
@@ -93,8 +94,8 @@
                     <td>Nam</td>
                     <td>1990-01-01</td>
                     <td>
-                        <a href="https://www.google.com" class="btn btn-edit">Sửa</a>
-                        <a href="https://www.google.com" class="btn btn-delete">Xóa</a>
+                        <a href="https://www.google.com">Sửa</a>
+                        <a href="https://www.google.com">Xóa</a>
                     </td>
                 </tr>
                 <tr>
@@ -105,8 +106,8 @@
                     <td>Nữ</td>
                     <td>1990-01-01</td>
                     <td>
-                        <a href="https://www.google.com" class="btn btn-edit">Sửa</a>
-                        <a href="https://www.google.com" class="btn btn-delete">Xóa</a>
+                        <a href="https://www.google.com">Sửa</a>
+                        <a href="https://www.google.com">Xóa</a>
                     </td>
                 </tr>
                 <tr>
@@ -117,16 +118,17 @@
                     <td>Nam</td>
                     <td>1990-01-01</td>
                     <td>
-                        <a href="https://www.google.com" class="btn btn-edit">Sửa</a>
-                        <a href="https://www.google.com" class="btn btn-delete">Xóa</a>
+                        <a href="https://www.google.com">Sửa</a>
+                        <a href="https://www.google.com">Xóa</a>
                     </td>
                 </tr>
             </tbody>            
         </table>
-
+        <hr>
         <h1>Bài tập thực hành số 1 + 2</h1>
+        <hr>
         <h2>Bài tập 03</h2>
-        <table>
+        <table >
             <thead>
                 <tr>
                     <th colspan="2" rowspan="2">Student</th>
@@ -196,6 +198,193 @@
                  </tr>
              </tbody>
         </table>
+        <hr>
+        <h2>Bài tập 04</h2>
+
+        <form action="">
+                       <div>
+                <h2>Basic Info</h2>
+                <hr>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><label for="id">Employee ID</label></td>
+                            <td><label for="id">9</label></td>
+                        </tr>
+                        <tr>
+                            <td><label for="lastName">Last Name</label></td>
+                            <td><label for="lastName">Dodsworth</label></td>
+                        </tr>
+                        <tr>
+                            <td><label for="firstName">First Name</label></td>
+                            <td><input type="text" id="firstName" name="firstName" value="Anne"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="gender">Gender</label></td>
+                            <td>
+                                <div>
+                                    <input type="radio" id="gender" name="gender" value="Female">
+                                    <label for="gender">Male</label>
+                                    <br>
+                                    <input type="radio" id="gender" name="gender" value="Male">
+                                    <label for="gender">Female</label>
+                                    <br>
+                                    <input type="radio" id="gender" name="gender" value="XXX">
+                                    <label for="gender">XXX</label>
+                                    <br>
+                                    <input type="radio" id="gender" name="gender" value="ZZZ">
+                                    <label for="gender">ZZZ</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="title">Title</label></td>
+                            <td><input type="text" value="Sales Representative"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="Suffix">Suffix</label></td>
+                            <td><input type="text" value="Ms."></td>
+                        </tr>
+                        <tr>
+                            <td><label for="Birthdate">BirthDate</label></td>
+                            <td><input type="text" value="1969-07-02 00:00:00"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="HireDate">HireDate</label></td>
+                            <td><input type="text" value="1994-11-15 00:00:00"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="SSN">SSn # (if applicable)</label></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="Report">Reports To</label></td>
+                            <td>
+                                <select type="select" value="Buchanan">
+                                    <option value="Andrew 1">Buchanan</option>
+                                    <option value="Andrew 2">PhatNgu</option>
+                                </select>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+                       </div>
+             
+             <div>
+                 <h2>Contact Info</h2>
+                 <hr>
+                 <table>
+                     <tbody>
+                         <tr>
+                             <td><label for="email">Email</label></td>
+                             <td><input type="email" id="email" name="email" value="name@example.com"></td>
+                         </tr>
+                         <tr>
+                             <td><label for="address">Address</label></td>
+                             <td><input type="text" id="address" name="address" value="7 Houndstooth Rd."></td>
+                         </tr>
+                         <tr>
+                             <td><label for="city">City</label></td>
+                             <td><input type="text" id="city" name="city" value="London"></td>
+                         </tr>
+                         <tr>
+                             <td><label for="region">Region</label></td>
+                             <td><input type="text" id="region" name="region" value=""></td>
+                         </tr>
+                         <tr>
+                             <td><label for="postalCode">Postal Code</label></td>
+                             <td><input type="text" id="postalCode" name="postalCode" value="WG2 7LT"></td>
+                         </tr>
+                         <tr>
+                             <td><label for="country">Country</label></td>
+                             <td>
+                                 <select id="country" name="country">
+                                     <option value="Russian Federation">Russian Federation</option>
+                                     <option value="United States">United States</option>
+                                     <option value="United Kingdom">United Kingdom</option>
+                                     <option value="Vietnam">Vietnam</option>
+                                 </select>
+                             </td>
+                         </tr>
+                         <tr>
+                             <td><label for="homePhone">US Home Phone</label></td>
+                             <td><input type="tel" id="homePhone" name="homePhone" value="(234)234-2342"></td>
+                         </tr>
+                         <tr>
+                             <td><label for="photo">Photo</label></td>
+                             <td><input type="text" id="photo" name="photo" value="EmpID9.bmp"></td>
+                         </tr>
+                     </tbody>
+                 </table>
+             </div>
+            
+                         <div>
+                 <h2>Optional Info</h2>
+                 <hr>
+                 <table>
+                     <tbody>
+                         <tr>
+                             <td><label for="notes">Notes</label></td>
+                             <td>
+                                 <textarea id="notes" name="notes" rows="8" cols="60">
+Anne has a BA degree in English from St. Lawrence College. She is fluent in French and German.ZZZ</textarea>
+                             </td>
+                         </tr>
+                         <tr>
+                             <td><label>Preferred Shift</label></td>
+                             <td>
+                                 <div>
+                                     <input type="checkbox" id="regular" name="preferredShift" value="Regular">
+                                     <label for="regular">Regular</label>
+                                     <br>
+                                     <input type="checkbox" id="gravyYard" name="preferredShift" value="Gravy Yard" checked>
+                                     <label for="gravyYard">Gravy Yard</label>
+                                 </div>
+                             </td>
+                         </tr>
+                         <tr>
+                             <td><label for="active">Active?</label></td>
+                             <td>
+                                 <input type="checkbox" id="active" name="active" checked>
+                             </td>
+                         </tr>
+                         <tr>
+                             <td><label for="captcha">Are you human?</label></td>
+                             <td>
+                                 <div>
+                                     <div>
+                                         T I D A M O
+                                     </div>
+                                     <div>
+                                         <a href="https://www.google.com">Click to change</a>
+                                     </div>
+                                     <input type="text" id="captcha" name="captcha" placeholder="A screenshot of a computer">
+                            
+                                 </div>
+                             </td>
+                         </tr>
+                     </tbody>
+                 </table>
+                 
+                    <table width="100%">
+                      <tr>
+                          <td align="left">
+                              <button type="button">◀</button>
+                              <button type="button">▶</button>
+                          </td>
+                          
+                          <td align="right">
+                              <button type="submit">📄 Submit</button>
+                              <button type="button">✖ Cancel</button>
+                          </td>
+                      </tr>
+                  </table>
+                  <td >
+                    <span>* required</span>
+                </td>
+             </div>
+        </form>
     </main>
     <footer>
 

@@ -26,7 +26,8 @@
         }
         
         th {
-            background-color: #6cbced;  /* Màu nền cho header */
+            background-color: #4CAF50;  /* Màu nền xanh lá cho header */
+            color: white;               /* Chữ trắng */
             font-weight: bold;          /* Chữ đậm cho header */
         }
         tr:nth-child(even) {
@@ -35,6 +36,40 @@
         tr:hover {
             background-color: #6cbced;
             color: white;
+        }
+        
+        /* CSS cho các button trong table */
+        table a {
+            text-decoration: none;      /* Bỏ gạch chân */
+            padding: 5px 10px;          /* Padding trong button */
+            border-radius: 3px;         /* Bo góc */
+            font-size: 12px;            /* Cỡ chữ nhỏ */
+            font-weight: bold;          /* Chữ đậm */
+            margin: 0 2px;              /* Khoảng cách giữa các button */
+            transition: all 0.3s ease;  /* Hiệu ứng chuyển đổi */
+            display: inline-block;      /* Inline-block để padding hoạt động */
+        }
+        
+        /* Button Sửa - màu xanh dương */
+        table a:first-child {
+            background-color: #2196F3;  /* Màu nền xanh dương */
+            color: white;               /* Chữ trắng */
+        }
+        
+        table a:first-child:hover {
+            background-color: #1976D2;  /* Xanh đậm hơn khi hover */
+            transform: scale(1.05);     /* Phóng to nhẹ */
+        }
+        
+        /* Button Xóa - màu đỏ */
+        table a:last-child {
+            background-color: #f44336;  /* Màu nền đỏ */
+            color: white;               /* Chữ trắng */
+        }
+        
+        table a:last-child:hover {
+            background-color: #d32f2f;  /* Đỏ đậm hơn khi hover */
+            transform: scale(1.05);     /* Phóng to nhẹ */
         }
         #btn-them {
             background-color: #c3f550;
@@ -140,7 +175,7 @@
             </form>
         </div>
         <hr>
-        <h2>Tạo bảng hiển thị danh sách sinh viên</h2>
+        <h2 style="text-align: center; background-color: #c3f550; color:white; border: 1px solid white; border-radius: 5px; padding: 10px;">Tạo bảng hiển thị danh sách sinh viên</h2>
         <table>
             <thead>
                 <tr>

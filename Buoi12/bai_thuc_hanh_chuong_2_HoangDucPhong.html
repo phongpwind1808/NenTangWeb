@@ -15,36 +15,43 @@
         <h2>Xây dựng form thêm sinh viên</h2>
         <div id="form-container">
             <form id="add-student-form" ">
-                <div>
-                    <label for="maSV">Mã sinh viên:</label>
-                    <input type="text" id="maSV" name="maSV" required>
-                </div>
-                <div>
-                    <label for="hoTen">Họ tên:</label>
-                    <input type="text" id="hoTen" name="hoTen" required>
-                </div>
-                <div>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div>
-                    <label for="gioiTinh">Giới tính:</label>
-                    <input type="radio" id="nam" name="gioiTinh" value="Nam">
-                    <label for="nam">Nam</label>
-                    <input type="radio" id="nu" name="gioiTinh" value="Nữ">
-                    <label for="nu">Nữ</label>
-                </div>
-                <div>
-                    <label for="ngaySinh">Ngày sinh:</label>
-                    <input type="date" id="ngaySinh" name="ngaySinh" required>
-                </div>
-                <div>
-                    <label for="ghiChu">Ghi chú</label>
-                    <textarea name="ghiChu" id="ghiChu"></textarea>
-                </div>
-                <div>
-                    <button type="submit">Thêm sinh viên</button>
-                </div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><label for="maSV">Mã sinh viên:</label></td>
+                            <td><input type="text" id="maSV" name="maSV" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="hoTen">Họ tên:</label></td>
+                            <td><input type="text" id="hoTen" name="hoTen" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="email">Email:</label></td>
+                            <td><input type="email" id="email" name="email" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="gioiTinh">Giới tính:</label></td>
+                            <td>
+                                <input type="radio" id="nam" name="gioiTinh" value="Nam">
+                                <label for="nam">Nam</label>
+                                <input type="radio" id="nu" name="gioiTinh" value="Nữ">
+                                <label for="nu">Nữ</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="ngaySinh">Ngày sinh:</label></td>
+                            <td><input type="date" id="ngaySinh" name="ngaySinh" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="ghiChu">Ghi chú:</label></td>
+                            <td><textarea name="ghiChu" id="ghiChu"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><button type="submit">Thêm sinh viên</button></td>
+                        </tr>
+                    </tbody>
+                </table>
             </form>
         </div>
         <hr>

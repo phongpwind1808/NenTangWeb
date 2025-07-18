@@ -12,6 +12,29 @@
             margin-bottom: 20px;
         }
     
+        table {
+            border: 1px solid #ddd;
+            border-collapse: collapse;
+            width: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;     /* Thêm border cho các cell */
+            padding: 8px 12px;          /* Thêm padding cho đẹp */
+            text-align: left;           /* Căn trái */
+        }
+        
+        th {
+            background-color: #6cbced;  /* Màu nền cho header */
+            font-weight: bold;          /* Chữ đậm cho header */
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #6cbced;
+            color: white;
         }
         #btn-them {
             background-color: #c3f550;

@@ -1,0 +1,131 @@
+#form-container {
+  padding: 20px;
+  background-color: antiquewhite;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+table {
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+th,
+td {
+  border: 1px solid #ddd; /* Thêm border cho các cell */
+  padding: 8px 12px; /* Thêm padding cho đẹp */
+  text-align: left; /* Căn trái */
+}
+
+th {
+  background-color: #4caf50; /* Màu nền xanh lá cho header */
+  color: white; /* Chữ trắng */
+  font-weight: bold; /* Chữ đậm cho header */
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+tr:hover {
+  background-color: #6cbced;
+  color: white;
+}
+
+/* CSS cho các button trong table */
+table a {
+  text-decoration: none; /* Bỏ gạch chân */
+  padding: 5px 10px; /* Padding trong button */
+  border-radius: 3px; /* Bo góc */
+  font-size: 12px; /* Cỡ chữ nhỏ */
+  font-weight: bold; /* Chữ đậm */
+  margin: 0 2px; /* Khoảng cách giữa các button */
+  transition: all 0.3s ease; /* Hiệu ứng chuyển đổi */
+  display: inline-block; /* Inline-block để padding hoạt động */
+}
+
+/* Button Sửa - màu xanh dương */
+table a:first-child {
+  background-color: #2196f3; /* Màu nền xanh dương */
+  color: white; /* Chữ trắng */
+}
+
+table a:first-child:hover {
+  background-color: #1976d2; /* Xanh đậm hơn khi hover */
+  transform: scale(1.05); /* Phóng to nhẹ */
+}
+
+/* Button Xóa - màu đỏ */
+table a:last-child {
+  background-color: #f44336; /* Màu nền đỏ */
+  color: white; /* Chữ trắng */
+}
+
+table a:last-child:hover {
+  background-color: #d32f2f; /* Đỏ đậm hơn khi hover */
+  transform: scale(1.05); /* Phóng to nhẹ */
+}
+#btn-them {
+  background-color: #c3f550;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 8px 16px;
+}
+
+#btn-them:hover {
+  background-color: #7bae03;
+  color: white;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+#add-student-form div {
+  margin: 0; /* Chỉnh tất cả margin về 0 */
+}
+
+label {
+  display: inline-block; /* Inline-block thay vì block */
+  width: 130px; /* Giảm từ 150px xuống 130px */
+  vertical-align: top; /* Căn trên cùng */
+  margin-bottom: 0;
+  margin-right: 10px; /* Thêm margin-right */
+  padding: 8px 0; /* Thêm padding trên dưới */
+}
+
+/* CSS riêng cho label của radio buttons */
+label[for="nam"],
+label[for="nu"] {
+  width: auto; /* Không cố định chiều rộng */
+  margin-right: 10px; /* Giảm từ 15px xuống 10px */
+  margin-left: 3px; /* Giảm từ 5px xuống 3px */
+  padding: 0; /* Bỏ padding cho label radio */
+}
+
+input,
+textarea {
+  display: inline-block;
+  width: calc(100% - 150px); /* Điều chỉnh theo label mới */
+  vertical-align: top;
+  padding: 8px 10px; /* Thêm padding trong input */
+  border: 1px solid #ddd; /* Thêm border */
+  border-radius: 4px; /* Thêm bo góc */
+  box-sizing: border-box; /* Bao gồm padding trong width */
+}
+
+/* CSS riêng cho input radio */
+input[type="radio"] {
+  width: auto; /* Không áp dụng calc() */
+  margin-right: 5px; /* Khoảng cách với label */
+  vertical-align: middle; /* Căn giữa với text */
+}
+
+.main-container {
+  display: grid;
+}
+.header-container {
+  display: grid;
+}

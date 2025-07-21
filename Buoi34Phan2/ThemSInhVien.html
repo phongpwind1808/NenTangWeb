@@ -1,256 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-        #form-container {
-            padding: 20px;
-            background-color:antiquewhite;
-            border-radius:5px;
-            margin-bottom: 20px;
-        }
-    
-        table {
-            border: 1px solid #ddd;
-            border-collapse: collapse;
-            width: 100%;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        
-        th, td {
-            border: 1px solid #ddd;     /* Thêm border cho các cell */
-            padding: 8px 12px;          /* Thêm padding cho đẹp */
-            text-align: left;           /* Căn trái */
-        }
-        
-        th {
-            background-color: #4CAF50;  /* Màu nền xanh lá cho header */
-            color: white;               /* Chữ trắng */
-            font-weight: bold;          /* Chữ đậm cho header */
-        }
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        tr:hover {
-            background-color: #6cbced;
-            color: white;
-        }
-        
-        /* CSS cho các button trong table */
-        table a {
-            text-decoration: none;      /* Bỏ gạch chân */
-            padding: 5px 10px;          /* Padding trong button */
-            border-radius: 3px;         /* Bo góc */
-            font-size: 12px;            /* Cỡ chữ nhỏ */
-            font-weight: bold;          /* Chữ đậm */
-            margin: 0 2px;              /* Khoảng cách giữa các button */
-            transition: all 0.3s ease;  /* Hiệu ứng chuyển đổi */
-            display: inline-block;      /* Inline-block để padding hoạt động */
-        }
-        
-        /* Button Sửa - màu xanh dương */
-        table a:first-child {
-            background-color: #2196F3;  /* Màu nền xanh dương */
-            color: white;               /* Chữ trắng */
-        }
-        
-        table a:first-child:hover {
-            background-color: #1976D2;  /* Xanh đậm hơn khi hover */
-            transform: scale(1.05);     /* Phóng to nhẹ */
-        }
-        
-        /* Button Xóa - màu đỏ */
-        table a:last-child {
-            background-color: #f44336;  /* Màu nền đỏ */
-            color: white;               /* Chữ trắng */
-        }
-        
-        table a:last-child:hover {
-            background-color: #d32f2f;  /* Đỏ đậm hơn khi hover */
-            transform: scale(1.05);     /* Phóng to nhẹ */
-        }
-        #btn-them {
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="../bootstrap-5.3.7-dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"
+    />
+  </head>
+  <body>
+    <div class="container header-container">
+      <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Dropdown
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li>
+                      <a class="dropdown-item" href="#">Another action</a>
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                </li>
+              </ul>
+              <form class="d-flex" role="search">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button class="btn btn-outline-success" type="submit">
+                  Search
+                </button>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <main class="container main-container">
+        <div id="form-container">
+          <form id="add-student-form">
+            <div>
+              <label for="maSV">Mã sinh viên:</label>
+              <input type="text" id="maSV" name="maSV" required />
+            </div>
+            <div>
+              <label for="hoTen">Họ tên:</label>
+              <input type="text" id="hoTen" name="hoTen" required />
+            </div>
+            <div>
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div style="display: flex; align-items: center">
+              <label for="gioiTinh">Giới tính:</label>
+              <div style="display: flex; align-items: center">
+                <div>
+                  <input type="radio" id="nam" name="gioiTinh" value="Nam" />
+                  <label for="nam">Nam</label>
+                </div>
+                <div>
+                  <input type="radio" id="nu" name="gioiTinh" value="Nữ" />
+                  <label for="nu">Nữ</label>
+                </div>
+              </div>
+            </div>
+            <div>
+              <label for="ngaySinh">Ngày sinh:</label>
+              <input type="date" id="ngaySinh" name="ngaySinh" required />
+            </div>
+            <div>
+              <label for="ghiChu">Ghi chú:</label>
+              <textarea name="ghiChu" id="ghiChu"></textarea>
+            </div>
+            <div>
+              <button id="btn-them" type="submit">Thêm sinh viên</button>
+            </div>
+          </form>
+        </div>
+        <hr />
+        <h2
+          style="
+            text-align: center;
             background-color: #c3f550;
             color: white;
             border: 1px solid white;
             border-radius: 5px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            padding: 8px 16px;
-        }
-        
-        #btn-them:hover {
-            background-color: #7bae03;
-            color: white;
-            border: 1px solid rgb(0, 0, 0);
-            border-radius: 10px;
-            transform: scale(1.05);
-            transition: all 0.3s ease;
-        }
-        #add-student-form div {
-            margin: 0;                  /* Chỉnh tất cả margin về 0 */
-        }
-
-        label {
-            display: inline-block;      /* Inline-block thay vì block */
-            width: 130px;               /* Giảm từ 150px xuống 130px */
-            vertical-align: top;        /* Căn trên cùng */
-            margin-bottom: 0;
-            margin-right: 10px;         /* Thêm margin-right */
-            padding: 8px 0;             /* Thêm padding trên dưới */
-        }
-        
-        /* CSS riêng cho label của radio buttons */
-        label[for="nam"], label[for="nu"] {
-            width: auto;                /* Không cố định chiều rộng */
-            margin-right: 10px;         /* Giảm từ 15px xuống 10px */
-            margin-left: 3px;           /* Giảm từ 5px xuống 3px */
-            padding: 0;                 /* Bỏ padding cho label radio */
-        }
-
-        input, textarea {
-            display: inline-block;
-            width: calc(100% - 150px);  /* Điều chỉnh theo label mới */
-            vertical-align: top;
-            padding: 8px 10px;          /* Thêm padding trong input */
-            border: 1px solid #ddd;     /* Thêm border */
-            border-radius: 4px;         /* Thêm bo góc */
-            box-sizing: border-box;     /* Bao gồm padding trong width */
-        }
-        
-        /* CSS riêng cho input radio */
-        input[type="radio"] {
-            width: auto;                /* Không áp dụng calc() */
-            margin-right: 5px;          /* Khoảng cách với label */
-            vertical-align: middle;     /* Căn giữa với text */
-        }
-    </style>
-</head>
-<body>
-    <header>
-
-    </header>
-    <main>
-        <h2 style="text-align: center; background-color: #c3f550; color:white; border: 1px solid white; border-radius: 5px; padding: 10px;">Xây dựng form thêm sinh viên</h2>
-        <div id="form-container">
-            <form id="add-student-form">
-                <div>
-                    <label for="maSV">Mã sinh viên:</label>
-                    <input type="text" id="maSV" name="maSV" required>
-                </div>
-                <div>
-                    <label for="hoTen">Họ tên:</label>
-                    <input type="text" id="hoTen" name="hoTen" required>
-                </div>
-                <div>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div style="display: flex; align-items: center;">
-                    <label for="gioiTinh">Giới tính:</label>
-                    <div style="display: flex; align-items: center;">
-                        <div>
-                            <input type="radio" id="nam" name="gioiTinh" value="Nam">
-                            <label for="nam">Nam</label>
-                        </div>
-                        <div>
-                            <input type="radio" id="nu" name="gioiTinh" value="Nữ">
-                            <label for="nu">Nữ</label>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <label for="ngaySinh">Ngày sinh:</label>
-                    <input type="date" id="ngaySinh" name="ngaySinh" required>
-                </div>
-                <div>
-                    <label for="ghiChu">Ghi chú:</label>
-                    <textarea name="ghiChu" id="ghiChu"></textarea>
-                </div>
-                <div>
-                    <button id="btn-them" type="submit">Thêm sinh viên</button>
-                </div>
-            </form>
-        </div>
-        <hr>
-        <h2 style="text-align: center; background-color: #c3f550; color:white; border: 1px solid white; border-radius: 5px; padding: 10px;">Tạo bảng hiển thị danh sách sinh viên</h2>
+            padding: 10px;
+          "
+        >
+          Tạo bảng hiển thị danh sách sinh viên
+        </h2>
         <table>
-            <thead>
-                <tr>
-                    <th>STT</th>
-                    <th>Mã SV</th>
-                    <th>Họ Và Tên</th>
-                    <th>Email</th>
-                    <th>Giới tính</th>
-                    <th>Ngày sinh</th>
-                    <th>Hành động</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>101</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>nguyenvana@gmail.com</td>
-                    <td>Nam</td>
-                    <td>1990-01-01</td>
-                    <td>
-                        <a href="https://www.google.com">Sửa</a>
-                        <a href="https://www.google.com">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>102</td>
-                    <td>Nguyễn Văn B</td>
-                    <td>nguyenvanb@gmail.com</td>
-                    <td>Nữ</td>
-                    <td>1990-01-01</td>
-                    <td>
-                        <a href="https://www.google.com">Sửa</a>
-                        <a href="https://www.google.com">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>103</td>
-                    <td>Nguyễn Văn CCC</td>
-                    <td>nguyenvanc@gmail.com</td>
-                    <td>Nam</td>
-                    <td>1990-01-01</td>
-                    <td>
-                        <a href="https://www.google.com">Sửa</a>
-                        <a href="https://www.google.com">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>104</td>
-                    <td>Nguyễn Văn D</td>
-                    <td>nguyenvand@gmail.com</td>
-                    <td>Nữ</td>
-                    <td>1990-01-01</td>
-                    <td>
-                        <a href="https://www.google.com">Sửa</a>
-                        <a href="https://www.google.com">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>105</td>
-                    <td>Nguyễn Văn E</td>
-                    <td>nguyenvane@gmail.com</td>
-                    <td>Nam</td>
-                    <td>1990-01-01</td>
-                    <td>
-                        <a href="https://www.google.com">Sửa</a>
-                        <a href="https://www.google.com">Xóa</a>
-                    </td>
-                </tr>
-            </tbody>            
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Mã SV</th>
+              <th>Họ Và Tên</th>
+              <th>Email</th>
+              <th>Giới tính</th>
+              <th>Ngày sinh</th>
+              <th>Hành động</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>101</td>
+              <td>Nguyễn Văn A</td>
+              <td>nguyenvana@gmail.com</td>
+              <td>Nam</td>
+              <td>1990-01-01</td>
+              <td>
+                <a href="https://www.google.com">Sửa</a>
+                <a href="https://www.google.com">Xóa</a>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>102</td>
+              <td>Nguyễn Văn B</td>
+              <td>nguyenvanb@gmail.com</td>
+              <td>Nữ</td>
+              <td>1990-01-01</td>
+              <td>
+                <a href="https://www.google.com">Sửa</a>
+                <a href="https://www.google.com">Xóa</a>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>103</td>
+              <td>Nguyễn Văn CCC</td>
+              <td>nguyenvanc@gmail.com</td>
+              <td>Nam</td>
+              <td>1990-01-01</td>
+              <td>
+                <a href="https://www.google.com">Sửa</a>
+                <a href="https://www.google.com">Xóa</a>
+              </td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>104</td>
+              <td>Nguyễn Văn D</td>
+              <td>nguyenvand@gmail.com</td>
+              <td>Nữ</td>
+              <td>1990-01-01</td>
+              <td>
+                <a href="https://www.google.com">Sửa</a>
+                <a href="https://www.google.com">Xóa</a>
+              </td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>105</td>
+              <td>Nguyễn Văn E</td>
+              <td>nguyenvane@gmail.com</td>
+              <td>Nam</td>
+              <td>1990-01-01</td>
+              <td>
+                <a href="https://www.google.com">Sửa</a>
+                <a href="https://www.google.com">Xóa</a>
+              </td>
+            </tr>
+          </tbody>
         </table>
-    </main>
-</body>
+      </main>
+    </div>
+  </body>
 </html>

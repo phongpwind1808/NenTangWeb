@@ -31,6 +31,7 @@ main.container-fluid {
 .row.g-3 {
   display: flex;
   align-items: stretch; /* Làm cho các cột có chiều cao bằng nhau */
+  min-height: calc(100vh - 120px); /* Chiều cao toàn màn hình trừ header và padding */
 }
 
 .col-12.col-lg-6 {
@@ -48,6 +49,7 @@ main.container-fluid {
   display: flex;
   flex-direction: column;
   height: 100%; /* Chiếm toàn bộ chiều cao có sẵn */
+  margin-bottom: 0;
 }
 
 #add-student-form {
@@ -55,6 +57,7 @@ main.container-fluid {
   flex-direction: column;
   height: 100%;
   justify-content: space-between; /* Phân bổ đều các phần tử */
+  gap: 15px;
 }
 
 
@@ -133,7 +136,7 @@ main.container-fluid {
 
 /* Button styling */
 #btn-them {
-  background-color: #3498db;
+  background-color: #6c757d; /* Màu xám cho secondary */
   color: white;
   border: none;
   border-radius: 5px;
@@ -145,9 +148,26 @@ main.container-fluid {
 }
 
 #btn-them:hover {
-  background-color: #2980b9;
+  background-color: #545b62; /* Xám đậm hơn khi hover */
 }
 
+#btn-confirm {
+  background-color: #3498db; /* Màu xanh cho primary */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
+#btn-confirm:hover {
+  background-color: #2980b9; /* Xanh đậm hơn khi hover */
+}
+
+/* Table Container Styles */
 .table-container {
   background-color: white;
   border-radius: 10px;
@@ -157,6 +177,13 @@ main.container-fluid {
   display: flex;
   flex-direction: column;
   height: 100%; /* Chiếm toàn bộ chiều cao có sẵn */
+}
+
+/* Table chiếm toàn màn hình khi form bị ẩn */
+.col-12.col-lg-6:last-child {
+  flex: 1 !important;
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 .table-responsive {
@@ -274,7 +301,8 @@ table a:last-child:hover {
     font-size: 16px; /* Giữ size để tránh zoom trên iOS */
   }
   
-  #btn-them {
+  #btn-them,
+  #btn-confirm {
     padding: 14px 20px;
     font-size: 16px;
   }
@@ -325,7 +353,7 @@ table a:last-child:hover {
   
   .row.g-3 {
     align-items: stretch !important;
-    min-height: 500px; /* Đặt chiều cao tối thiểu */
+    min-height: calc(100vh - 120px); /* Chiều cao toàn màn hình trừ header */
   }
   
   .col-12.col-lg-6 {
@@ -333,10 +361,16 @@ table a:last-child:hover {
     flex-direction: column !important;
   }
   
+  /* Table container chiếm toàn màn hình khi form bị ẩn */
+  .col-12.col-lg-6:last-child {
+    flex: 1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
   #form-container,
   .table-container {
     height: 100% !important;
-    display: flex !important;
     flex-direction: column !important;
     flex: 1 !important;
   }
@@ -353,6 +387,20 @@ table a:last-child:hover {
   }
 }
 
+/* Responsive Styles */
+@media (max-width: 991px) {
+  #form-container,
+  .table-container {
+    margin-bottom: 20px;
+  }
+}
+
+/* Remove Modal Overlay Styles since we don't need them anymore */
+.modal-overlay,
+.modal-close {
+  display: none;
+}
+
 /* ===== UTILITY CLASSES ===== */
 .w-100 {
   width: 100% !important;
@@ -366,7 +414,3 @@ th{
   color: white;
   font-weight: bold;
 }
-
-
-
-

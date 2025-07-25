@@ -123,8 +123,8 @@
                   <textarea name="ghiChu" id="ghiChu"></textarea>
                 </div>
                 <div class="form-group text-center">
-                  <button class="btn btn-primary" id="btn-confirm" type="submit">
-                    Xác nhận
+                  <button class="btn btn-primary" id="btnThem" type="submit">
+                    Thêm
                   </button>
                 </div>
               </form>
@@ -216,5 +216,12 @@
         </div>
       </main>
     </div>
+    <script>
+      // Xử lý sự kiện click cho nút "Thêm"
+      document.getElementById("btnThem").addEventListener("click", function(e) {
+        e.preventDefault(); // Ngăn form submit mặc định
+        alert("Đã nhấn nút Thêm");
+      });
+    </script>
   </body>
 </html>

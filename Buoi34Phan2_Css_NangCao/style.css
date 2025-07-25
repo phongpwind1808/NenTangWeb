@@ -135,8 +135,8 @@ main.container-fluid {
 }
 
 /* Button styling */
-#btn-them {
-  background-color: #6c757d; /* Màu xám cho secondary */
+#btnThem {
+  background-color: #3498db; /* Màu xanh cho primary */
   color: white;
   border: none;
   border-radius: 5px;
@@ -147,8 +147,8 @@ main.container-fluid {
   margin-top: 10px;
 }
 
-#btn-them:hover {
-  background-color: #545b62; /* Xám đậm hơn khi hover */
+#btnThem:hover {
+  background-color: #2980b9; /* Xanh đậm hơn khi hover */
 }
 
 #btn-confirm {
@@ -301,7 +301,7 @@ table a:last-child:hover {
     font-size: 16px; /* Giữ size để tránh zoom trên iOS */
   }
   
-  #btn-them,
+  #btnThem,
   #btn-confirm {
     padding: 14px 20px;
     font-size: 16px;

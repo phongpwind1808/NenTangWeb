@@ -10,6 +10,36 @@
       href="../bootstrap-5.3.7-dist/css/bootstrap.min.css"
     />
     <script src="../bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+      .btn-edit, .btn-delete {
+        padding: 5px 10px;
+        margin: 0 5px;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+      }
+      
+      .btn-edit {
+        background-color: #ffc107;
+        color: #000;
+      }
+      
+      .btn-delete {
+        background-color: #dc3545;
+        color: #fff;
+      }
+      
+      .btn-edit:hover {
+        background-color: #ffca2c;
+        color: #000;
+      }
+      
+      .btn-delete:hover {
+        background-color: #bb2d3b;
+        color: #fff;
+      }
+    </style>
   </head>
   <body>
     <div class="container-fluid p-0">
@@ -222,31 +252,44 @@
     <script>
       // Hàm kiểm tra validation
       function validateForm() {
-        // Kiểm tra input rỗng
+        // Lấy giá trị và loại bỏ khoảng trắng
         let maSV = document.getElementById("maSV").value.trim();
         let hoTen = document.getElementById("hoTen").value.trim();
         let email = document.getElementById("email").value.trim();
         let gioiTinh = document.querySelector('input[name="gioiTinh"]:checked')?.value;
         let ngaySinh = document.getElementById("ngaySinh").value.trim();
 
-        if (maSV === "") {
+        console.log("Validation values:", {
+          maSV: maSV,
+          hoTen: hoTen,
+          email: email,
+          gioiTinh: gioiTinh,
+          ngaySinh: ngaySinh
+        });
+
+        // Kiểm tra từng trường
+        if (!maSV || maSV === "") {
           alert("Mã sinh viên không được để trống!");
+          document.getElementById("maSV").focus();
           return false;
         }
-        if (hoTen === "") {
+        if (!hoTen || hoTen === "") {
           alert("Họ tên không được để trống!");
+          document.getElementById("hoTen").focus();
           return false;
         }
-        if (email === "") {
+        if (!email || email === "") {
           alert("Email không được để trống!");
+          document.getElementById("email").focus();
           return false;
         }
         if (!gioiTinh) {
           alert("Vui lòng chọn giới tính!");
           return false;
         }
-        if (ngaySinh === "") {
+        if (!ngaySinh || ngaySinh === "") {
           alert("Ngày sinh không được để trống!");
+          document.getElementById("ngaySinh").focus();
           return false;
         }
 
@@ -254,25 +297,111 @@
         let regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
         if (!regexEmail.test(email)) {
           alert("Email không hợp lệ!");
+          document.getElementById("email").focus();
           return false;
         }
 
         return true;
       }
 
-      // Xử lý sự kiện click cho nút "Thêm"
-      document.getElementById("btnThem").addEventListener("click", function(e) {
-        e.preventDefault(); // Ngăn form submit mặc định
-        
+      // Biến lưu trữ dòng đang được chọn để sửa
+      let selectedRow = null;
+
+      // Xử lý sự kiện click cho nút "Sửa"
+      document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('btn-edit')) {
+          // Lấy dòng được chọn
+          selectedRow = e.target.parentElement.parentElement;
+          
+          // Nạp dữ liệu lên form
+          document.getElementById("maSV").value = selectedRow.cells[1].innerText;
+          document.getElementById("hoTen").value = selectedRow.cells[2].innerText;
+          document.getElementById("email").value = selectedRow.cells[3].innerText;
+          
+          // Chọn radio button giới tính
+          let gioiTinh = selectedRow.cells[4].innerText;
+          if (gioiTinh === "Nam") {
+            document.getElementById("nam").checked = true;
+          } else if (gioiTinh === "Nữ") {
+            document.getElementById("nu").checked = true;
+          }
+          
+          document.getElementById("ngaySinh").value = selectedRow.cells[5].innerText;
+          
+          // Đổi nút "Thêm" thành "Cập nhật"
+          document.getElementById("btnThem").innerText = "Cập nhật";
+        }
+      });
+
+      // Hàm cập nhật sinh viên
+      function capNhatSinhVien() {
+        if (selectedRow) {
+          // Kiểm tra validation trước khi cập nhật
+          if (!validateForm()) {
+            return false; // Trả về false để không clear form
+          }
+
+          // Lấy giá trị từ form
+          let maSV = document.getElementById("maSV").value.trim();
+          let hoTen = document.getElementById("hoTen").value.trim();
+          let email = document.getElementById("email").value.trim();
+          let gioiTinh = document.querySelector('input[name="gioiTinh"]:checked').value;
+          let ngaySinh = document.getElementById("ngaySinh").value;
+
+          console.log("Giá trị cập nhật:", {
+            maSV, hoTen, email, gioiTinh, ngaySinh
+          });
+
+          // Cập nhật dữ liệu vào dòng đã chọn
+          selectedRow.cells[1].innerText = maSV;
+          selectedRow.cells[2].innerText = hoTen;
+          selectedRow.cells[3].innerText = email;
+          selectedRow.cells[4].innerText = gioiTinh;
+          selectedRow.cells[5].innerText = ngaySinh;
+
+          // Hiển thị thông báo thành công
+          let thongBao = document.getElementById("thongBao");
+          thongBao.innerText = "Cập nhật sinh viên thành công!";
+          thongBao.style.display = "block";
+          thongBao.className = "alert alert-success";
+
+          // Tự ẩn thông báo sau 3 giây
+          setTimeout(() => {
+            thongBao.style.display = "none";
+            thongBao.innerText = "";
+          }, 3000);
+
+          // Reset form và các biến liên quan
+          selectedRow = null;
+          document.getElementById("add-student-form").reset();
+          document.getElementById("btnThem").innerText = "Thêm";
+          return true; // Trả về true khi thành công
+        } else {
+          // Hiển thị thông báo lỗi nếu không có dòng nào được chọn
+          let thongBao = document.getElementById("thongBao");
+          thongBao.innerText = "Vui lòng chọn sinh viên cần cập nhật!";
+          thongBao.style.display = "block";
+          thongBao.className = "alert alert-danger";
+          
+          setTimeout(() => {
+            thongBao.style.display = "none";
+            thongBao.innerText = "";
+          }, 3000);
+          return false;
+        }
+      }
+
+      // Hàm thêm sinh viên mới
+      function themSinhVien() {
         // Kiểm tra validation trước khi thêm
         if (!validateForm()) {
-          return;
+          return false; // Trả về false để không clear form
         }
-        
+
         // Lấy dữ liệu từ form
-        let maSV = document.getElementById("maSV").value;
-        let hoTen = document.getElementById("hoTen").value;
-        let email = document.getElementById("email").value;
+        let maSV = document.getElementById("maSV").value.trim();
+        let hoTen = document.getElementById("hoTen").value.trim();
+        let email = document.getElementById("email").value.trim();
         let gioiTinh = document.querySelector('input[name="gioiTinh"]:checked')?.value || '';
         let ngaySinh = document.getElementById("ngaySinh").value;
         
@@ -299,6 +428,7 @@
         let thongBao = document.getElementById("thongBao");
         thongBao.innerText = "Thêm sinh viên thành công!";
         thongBao.style.display = "block";
+        thongBao.className = "alert alert-success";
         
         // Tự ẩn thông báo sau 3 giây
         setTimeout(() => {
@@ -308,6 +438,20 @@
         
         // Reset form
         document.getElementById("add-student-form").reset();
+        return true; // Trả về true khi thành công
+      }
+
+      // Sự kiện click duy nhất cho nút "Thêm/Cập nhật"
+      document.getElementById("btnThem").addEventListener("click", function(e) {
+        e.preventDefault();
+        
+        if (selectedRow === null) {
+          // Thêm mới sinh viên
+          themSinhVien();
+        } else {
+          // Cập nhật sinh viên
+          capNhatSinhVien();
+        }
       });
 
       // Xử lý sự kiện click cho nút "Xóa"

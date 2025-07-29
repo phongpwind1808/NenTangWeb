@@ -220,9 +220,54 @@
       </main>
     </div>
     <script>
+      // Hàm kiểm tra validation
+      function validateForm() {
+        // Kiểm tra input rỗng
+        let maSV = document.getElementById("maSV").value.trim();
+        let hoTen = document.getElementById("hoTen").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let gioiTinh = document.querySelector('input[name="gioiTinh"]:checked')?.value;
+        let ngaySinh = document.getElementById("ngaySinh").value.trim();
+
+        if (maSV === "") {
+          alert("Mã sinh viên không được để trống!");
+          return false;
+        }
+        if (hoTen === "") {
+          alert("Họ tên không được để trống!");
+          return false;
+        }
+        if (email === "") {
+          alert("Email không được để trống!");
+          return false;
+        }
+        if (!gioiTinh) {
+          alert("Vui lòng chọn giới tính!");
+          return false;
+        }
+        if (ngaySinh === "") {
+          alert("Ngày sinh không được để trống!");
+          return false;
+        }
+
+        // Kiểm tra định dạng email
+        let regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (!regexEmail.test(email)) {
+          alert("Email không hợp lệ!");
+          return false;
+        }
+
+        return true;
+      }
+
       // Xử lý sự kiện click cho nút "Thêm"
       document.getElementById("btnThem").addEventListener("click", function(e) {
         e.preventDefault(); // Ngăn form submit mặc định
+        
+        // Kiểm tra validation trước khi thêm
+        if (!validateForm()) {
+          return;
+        }
         
         // Lấy dữ liệu từ form
         let maSV = document.getElementById("maSV").value;

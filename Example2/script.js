@@ -70,6 +70,12 @@ const addButton = document.querySelector('.btn-add');
 const exportControl = document.querySelector('.export-control');
 const resultSelect = document.querySelector('.result-select');
 
+// Modal elements
+const modal = document.getElementById('addTransactionModal');
+const modalClose = document.getElementById('modalClose');
+const cancelBtn = document.getElementById('cancelBtn');
+const addTransactionForm = document.getElementById('addTransactionForm');
+
 // Initialize the application
 // (Moved to bottom of file)
 
@@ -141,9 +147,33 @@ function setupEventListeners() {
         }
     });
     
-    // Add button functionality
+    // Add button functionality - Show modal
     addButton.addEventListener('click', function() {
-        alert('Tính năng thêm mới sẽ được cài đặt sau!');
+        showModal();
+    });
+    
+    // Modal event listeners
+    modalClose.addEventListener('click', hideModal);
+    cancelBtn.addEventListener('click', hideModal);
+    
+    // Close modal when clicking outside
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            hideModal();
+        }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('show')) {
+            hideModal();
+        }
+    });
+    
+    // Handle form submission
+    addTransactionForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        handleAddTransaction();
     });
     
     // Export functionality
@@ -343,6 +373,71 @@ function setupHeaderSearch() {
             }
         });
     }
+}
+
+// Modal functions
+function showModal() {
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+    // Clear form
+    addTransactionForm.reset();
+    // Focus on first input
+    document.getElementById('customer').focus();
+}
+
+function hideModal() {
+    modal.classList.remove('show');
+    document.body.style.overflow = 'auto';
+    // Clear form
+    addTransactionForm.reset();
+}
+
+function handleAddTransaction() {
+    // Get form data
+    const formData = new FormData(addTransactionForm);
+    const customerName = formData.get('customer').trim();
+    const employeeName = formData.get('employee').trim();
+    const amount = formData.get('amount').trim();
+    
+    // Basic validation
+    if (!customerName || !employeeName || !amount) {
+        alert('Vui lòng điền đầy đủ thông tin!');
+        return;
+    }
+    
+    if (isNaN(amount) || parseFloat(amount) <= 0) {
+        alert('Số tiền phải là số dương!');
+        return;
+    }
+    
+    // Create new transaction
+    const newTransaction = {
+        id: Math.max(...sampleData.map(item => item.id)) + 1,
+        year: new Date().getFullYear().toString(),
+        customer: customerName,
+        brand: employeeName, // Using employee as brand for consistency
+        amount: parseInt(amount).toLocaleString(),
+        date: new Date().toLocaleDateString('vi-VN', {
+            day: '2-digit',
+            month: 'long',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        })
+    };
+    
+    // Add to data arrays
+    sampleData.push(newTransaction);
+    currentData = [...sampleData];
+    
+    // Re-render table
+    renderTable();
+    
+    // Hide modal
+    hideModal();
+    
+    // Show success message
+    alert('Thêm giao dịch thành công!');
 }
 
 // Call setup header search in DOMContentLoaded

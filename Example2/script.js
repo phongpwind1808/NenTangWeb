@@ -1,64 +1,5 @@
-// Sample data for the table
-const sampleData = [
-    {
-        id: 1,
-        year: "1702",
-        customer: "Võ Hoài An",
-        brand: "Máy Thưa Anh",
-        amount: "230,000",
-        date: "06 Tháng 5 2024 8:00"
-    },
-    {
-        id: 2,
-        year: "1599",
-        customer: "Hoàng Thị Tháng",
-        brand: "Nguyễn Văn Hùng",
-        amount: "600,000",
-        date: "06 Tháng 5 2024 9:03"
-    },
-    {
-        id: 3,
-        year: "1235",
-        customer: "Nguyễn Hải Quang",
-        brand: "Nguyễn Văn Hùng",
-        amount: "934,000",
-        date: "06 Tháng 5 2024 9:16"
-    },
-    {
-        id: 4,
-        year: "1677",
-        customer: "Huỳnh Văn Nam",
-        brand: "Máy Thưa Anh",
-        amount: "150,000",
-        date: "06 Tháng 5 2024 9:20"
-    },
-    {
-        id: 5,
-        year: "1494",
-        customer: "Nguyễn Hồng Minh",
-        brand: "Máy Thưa Anh",
-        amount: "254,000",
-        date: "06 Tháng 5 2024 9:24"
-    },
-    {
-        id: 6,
-        year: "1388",
-        customer: "Lê Thị Mai",
-        brand: "Nguyễn Văn Hùng",
-        amount: "432,000",
-        date: "06 Tháng 5 2024 10:15"
-    },
-    {
-        id: 7,
-        year: "1566",
-        customer: "Trần Minh Đức",
-        brand: "Máy Thưa Anh",
-        amount: "678,000",
-        date: "06 Tháng 5 2024 11:30"
-    }
-];
-
-let currentData = [...sampleData];
+// Use data from data.js file
+let currentData = getAllTransactions();
 let selectedRows = new Set();
 
 // DOM elements
@@ -102,7 +43,7 @@ function renderTable() {
             </td>
             <td>${item.year}</td>
             <td>${item.customer}</td>
-            <td>${item.brand}</td>
+            <td>${item.employee}</td>
             <td>${item.amount}</td>
             <td>${item.date}</td>
         `;
@@ -142,7 +83,7 @@ function setupEventListeners() {
     // Clear search when input is empty
     searchInput.addEventListener('input', function() {
         if (this.value.trim() === '') {
-            currentData = [...sampleData];
+            currentData = getAllTransactions();
             renderTable();
         }
     });
@@ -174,6 +115,44 @@ function setupEventListeners() {
     addTransactionForm.addEventListener('submit', function(e) {
         e.preventDefault();
         handleAddTransaction();
+    });
+    
+    // Real-time validation
+    const customerInput = document.getElementById('customer');
+    const employeeInput = document.getElementById('employee');
+    const amountInput = document.getElementById('amount');
+    
+    customerInput.addEventListener('blur', function() {
+        validateField('customer', this.value.trim());
+    });
+    
+    customerInput.addEventListener('input', function() {
+        if (this.classList.contains('error')) {
+            clearError('customerError');
+            this.classList.remove('error');
+        }
+    });
+    
+    employeeInput.addEventListener('blur', function() {
+        validateField('employee', this.value.trim());
+    });
+    
+    employeeInput.addEventListener('input', function() {
+        if (this.classList.contains('error')) {
+            clearError('employeeError');
+            this.classList.remove('error');
+        }
+    });
+    
+    amountInput.addEventListener('blur', function() {
+        validateField('amount', this.value.trim());
+    });
+    
+    amountInput.addEventListener('input', function() {
+        if (this.classList.contains('error')) {
+            clearError('amountError');
+            this.classList.remove('error');
+        }
     });
     
     // Export functionality
@@ -210,19 +189,12 @@ function performSearch() {
     const query = searchInput.value.trim().toLowerCase();
     
     if (!query) {
-        currentData = [...sampleData];
+        currentData = getAllTransactions();
         renderTable();
         return;
     }
     
-    currentData = sampleData.filter(item => {
-        return item.customer.toLowerCase().includes(query) ||
-               item.brand.toLowerCase().includes(query) ||
-               item.year.includes(query) ||
-               item.amount.includes(query) ||
-               item.date.toLowerCase().includes(query);
-    });
-    
+    currentData = searchTransactions(query);
     selectedRows.clear();
     renderTable();
 }
@@ -388,35 +360,75 @@ function showModal() {
 function hideModal() {
     modal.classList.remove('show');
     document.body.style.overflow = 'auto';
-    // Clear form
+    // Clear form and errors
     addTransactionForm.reset();
+    clearAllErrors();
 }
 
 function handleAddTransaction() {
+    // Clear previous errors
+    clearAllErrors();
+    
     // Get form data
     const formData = new FormData(addTransactionForm);
     const customerName = formData.get('customer').trim();
     const employeeName = formData.get('employee').trim();
     const amount = formData.get('amount').trim();
     
-    // Basic validation
-    if (!customerName || !employeeName || !amount) {
-        alert('Vui lòng điền đầy đủ thông tin!');
-        return;
+    // Validation
+    let isValid = true;
+    
+    // Validate customer name
+    if (!customerName) {
+        showError('customerError', 'Tên khách hàng không được để trống');
+        setFieldError('customer');
+        isValid = false;
+    } else if (customerName.length > 30) {
+        showError('customerError', 'Tên khách hàng không được quá 30 ký tự');
+        setFieldError('customer');
+        isValid = false;
+    } else {
+        setFieldSuccess('customer');
     }
     
-    if (isNaN(amount) || parseFloat(amount) <= 0) {
-        alert('Số tiền phải là số dương!');
+    // Validate employee name
+    if (!employeeName) {
+        showError('employeeError', 'Tên nhân viên không được để trống');
+        setFieldError('employee');
+        isValid = false;
+    } else if (employeeName.length > 30) {
+        showError('employeeError', 'Tên nhân viên không được quá 30 ký tự');
+        setFieldError('employee');
+        isValid = false;
+    } else {
+        setFieldSuccess('employee');
+    }
+    
+    // Validate amount
+    if (!amount) {
+        showError('amountError', 'Số tiền không được để trống');
+        setFieldError('amount');
+        isValid = false;
+    } else if (isNaN(amount) || parseFloat(amount) <= 0) {
+        showError('amountError', 'Số tiền phải là số dương hợp lệ');
+        setFieldError('amount');
+        isValid = false;
+    } else {
+        setFieldSuccess('amount');
+    }
+    
+    // If validation fails, stop here
+    if (!isValid) {
         return;
     }
     
     // Create new transaction
-    const newTransaction = {
-        id: Math.max(...sampleData.map(item => item.id)) + 1,
+    const newTransactionData = {
         year: new Date().getFullYear().toString(),
         customer: customerName,
-        brand: employeeName, // Using employee as brand for consistency
+        employee: employeeName,
         amount: parseInt(amount).toLocaleString(),
+        rawAmount: parseInt(amount),
         date: new Date().toLocaleDateString('vi-VN', {
             day: '2-digit',
             month: 'long',
@@ -426,9 +438,11 @@ function handleAddTransaction() {
         })
     };
     
-    // Add to data arrays
-    sampleData.push(newTransaction);
-    currentData = [...sampleData];
+    // Add to data using data.js function
+    const newTransaction = addTransaction(newTransactionData);
+    
+    // Update current data
+    currentData = getAllTransactions();
     
     // Re-render table
     renderTable();
@@ -438,6 +452,101 @@ function handleAddTransaction() {
     
     // Show success message
     alert('Thêm giao dịch thành công!');
+}
+
+// Validation helper functions
+function showError(elementId, message) {
+    const errorElement = document.getElementById(elementId);
+    if (errorElement) {
+        errorElement.textContent = message;
+    }
+}
+
+function clearError(elementId) {
+    const errorElement = document.getElementById(elementId);
+    if (errorElement) {
+        errorElement.textContent = '';
+    }
+}
+
+function clearAllErrors() {
+    clearError('customerError');
+    clearError('employeeError');
+    clearError('amountError');
+    
+    // Clear field styling
+    document.getElementById('customer').classList.remove('error', 'success');
+    document.getElementById('employee').classList.remove('error', 'success');
+    document.getElementById('amount').classList.remove('error', 'success');
+}
+
+function setFieldError(fieldId) {
+    const field = document.getElementById(fieldId);
+    if (field) {
+        field.classList.remove('success');
+        field.classList.add('error');
+    }
+}
+
+function setFieldSuccess(fieldId) {
+    const field = document.getElementById(fieldId);
+    if (field) {
+        field.classList.remove('error');
+        field.classList.add('success');
+    }
+}
+
+// Real-time validation function
+function validateField(fieldId, value) {
+    switch(fieldId) {
+        case 'customer':
+            if (!value) {
+                showError('customerError', 'Tên khách hàng không được để trống');
+                setFieldError('customer');
+                return false;
+            } else if (value.length > 30) {
+                showError('customerError', 'Tên khách hàng không được quá 30 ký tự');
+                setFieldError('customer');
+                return false;
+            } else {
+                clearError('customerError');
+                setFieldSuccess('customer');
+                return true;
+            }
+            
+        case 'employee':
+            if (!value) {
+                showError('employeeError', 'Tên nhân viên không được để trống');
+                setFieldError('employee');
+                return false;
+            } else if (value.length > 30) {
+                showError('employeeError', 'Tên nhân viên không được quá 30 ký tự');
+                setFieldError('employee');
+                return false;
+            } else {
+                clearError('employeeError');
+                setFieldSuccess('employee');
+                return true;
+            }
+            
+        case 'amount':
+            if (!value) {
+                showError('amountError', 'Số tiền không được để trống');
+                setFieldError('amount');
+                return false;
+            } else if (isNaN(value) || parseFloat(value) <= 0) {
+                showError('amountError', 'Số tiền phải là số dương hợp lệ');
+                setFieldError('amount');
+                return false;
+            } else {
+                clearError('amountError');
+                setFieldSuccess('amount');
+                return true;
+            }
+            
+        default:
+            return true;
+    }
 }
 
 // Call setup header search in DOMContentLoaded

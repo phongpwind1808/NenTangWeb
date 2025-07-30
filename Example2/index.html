@@ -181,17 +181,20 @@
                 <form id="addTransactionForm">
                     <div class="form-field">
                         <label for="customer">Khách hàng</label>
-                        <input type="text" id="customer" name="customer" required>
+                        <input type="text" id="customer" name="customer" required maxlength="30">
+                        <div class="error-message" id="customerError"></div>
                     </div>
                     
                     <div class="form-field">
                         <label for="employee">Nhân viên</label>
-                        <input type="text" id="employee" name="employee" required>
+                        <input type="text" id="employee" name="employee" required maxlength="30">
+                        <div class="error-message" id="employeeError"></div>
                     </div>
                     
                     <div class="form-field">
                         <label for="amount">Số tiền</label>
-                        <input type="number" id="amount" name="amount" required>
+                        <input type="number" id="amount" name="amount" required min="1">
+                        <div class="error-message" id="amountError"></div>
                     </div>
                 </form>
             </div>
@@ -213,6 +216,7 @@
     </footer>
 
     <script src="../bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./data.js"></script>
     <script src="./script.js"></script>
 </body>
 </html>

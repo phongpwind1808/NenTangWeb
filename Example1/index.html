@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../bootstrap-5.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <script src="../bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div >
+            <ul class="navbar">
+                <li><h4><strong>TLU</strong></h4></li>
+                <li>Home</li>
+                <li><b>Employees</b></li>
+            </ul>
+        </div>
+        <div class="header-right">
+            <input type="text" placeholder="Search">
+            <button class="btn btn-Search">Search</button>
+        </div>
+    </header>
+    <main>
+        <div class="main-title">
+            <div>
+                <h3>Manage Employees</h3>
+            </div>
+            <div>
+                <button class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
+                <button class="btn btn-success"><i class="fa fa-plus"></i> Add New Employee</button>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th><input type="checkbox"></th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Thomas Hardy</td>
+                        <td>thomashardy@mail.com</td>
+                        <td>89 Chiaroscuro Rd, Portland, USA</td>
+                        <td>(171) 555-2222</td>
+                        <td>
+                            <button class="btn btn-sm btn-edit"><i class="fa fa-pencil"></i></button>
+                            <button class="btn btn-sm btn-delete"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Dominique Perrier</td>
+                        <td>dominiqueperrier@mail.com</td>
+                        <td>Obere Str. 57, Berlin, Germany</td>
+                        <td>(313) 555-5735</td>
+                        <td>
+                            <button class="btn btn-sm btn-edit"><i class="fa fa-pencil"></i></button>
+                            <button class="btn btn-sm btn-delete"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Maria Anders</td>
+                        <td>mariaanders@mail.com</td>
+                        <td>25, rue Lauriston, Paris, France</td>
+                        <td>(503) 555-9931</td>
+                        <td>
+                            <button class="btn btn-sm btn-edit"><i class="fa fa-pencil"></i></button>
+                            <button class="btn btn-sm btn-delete"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Fran Wilson</td>
+                        <td>franwilson@mail.com</td>
+                        <td>C/ Araquil, 67, Madrid, Spain</td>
+                        <td>(204) 619-5731</td>
+                        <td>
+                            <button class="btn btn-sm btn-edit"><i class="fa fa-pencil"></i></button>
+                            <button class="btn btn-sm btn-delete"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Martin Blank</td>
+                        <td>martinblank@mail.com</td>
+                        <td>Via Monte Bianco 34, Turin, Italy</td>
+                        <td>(480) 631-2097</td>
+                        <td>
+                            <button class="btn btn-sm btn-edit"><i class="fa fa-pencil"></i></button>
+                            <button class="btn btn-sm btn-delete"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination-container">
+                <div class="pagination-info">
+                    Showing <strong>5</strong> out of <strong>25</strong> entries
+                </div>
+                <div class="pagination">
+                    <a href="#">Previous</a>
+                    <a href="#">1</a>
+                    <a href="#">2</a>
+                    <span class="active">3</span>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">Next</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Add Employee -->
+    <div id="addEmployeeModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Employee</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="addEmployeeForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <textarea id="address" name="address" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-cancel" id="cancelBtn">Cancel</button>
+                <button type="submit" class="btn btn-add" form="addEmployeeForm">Add</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

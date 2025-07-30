@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f8f9fa;
+    margin: 20px;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 30px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0;
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+}
+
+.navbar {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 30px;
+    margin: 0;
+}
+
+.navbar li {
+    font-size: 14px;
+    color: #6c757d;
+    cursor: pointer;
+}
+
+.navbar li:first-child h4 {
+    color: #495057;
+    font-weight: bold;
+    margin: 0;
+}
+
+.navbar li:hover {
+    color: #007bff;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+input[type="text"] {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 8px 12px;
+    outline: none;
+    font-size: 14px;
+    width: 200px;
+}
+
+input[type="text"]:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.btn-Search {   
+    padding: 8px 16px;
+    border: 1px solid #28a745;
+    background-color: #28a745;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-Search:hover {
+    background-color: #218838;
+}
+
+/* Main Section */
+main {
+    margin-top: 20px;
+}
+
+.main-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: #495057;
+    color: white;
+    margin: 0;
+    border-radius: 4px 4px 0 0;
+}
+
+.main-title h3 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.main-title .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.main-title div:last-child {
+    display: flex;
+    gap: 12px;
+}
+
+/* Table Styles */
+.table-container {
+    background-color: white;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0;
+    border: 1px solid #dee2e6;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead th {
+    background-color: #f8f9fa;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+    color: #495057;
+    border-bottom: 1px solid #dee2e6;
+    font-size: 14px;
+}
+
+tbody td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #dee2e6;
+    color: #495057;
+    font-size: 14px;
+}
+
+tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Action buttons in table */
+.btn-sm {
+    padding: 4px 8px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.btn-edit {
+    background-color: #ffc107;
+    color: white;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #e0a800;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+/* Checkbox styles */
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* Pagination */
+.pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: white;
+    border-top: 1px solid #dee2e6;
+    margin: 0;
+    border-radius: 0 0 4px 4px;
+}
+
+.pagination-info {
+    color: #6c757d;
+    font-size: 14px;
+}
+
+.pagination {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.pagination span,
+.pagination a {
+    padding: 6px 12px;
+    color: #6c757d;
+    text-decoration: none;
+    border: 1px solid #dee2e6;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.pagination .active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.pagination a:hover {
+    background-color: #e9ecef;
+}
+
+/* Icon colors */
+i.fa-pencil {
+    color: white;
+}
+
+i.fa-trash {
+    color: white;
+}
+
+/* Icon spacing in main buttons */
+.main-title .btn i {
+    margin-right: 5px;
+}

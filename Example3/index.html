@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trường Đại học Thủy lợi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <span class="site-title">Trường Đại học Thủy lợi</span>
+        </div>
+        <div class="header-right">
+            <a href="#" class="header-link">Trang chủ</a>
+            <a href="#" class="header-link">Quản lý của hàng</a>
+            <div class="header-search">
+                <input type="text" class="header-search-input" placeholder="Nhập nội dung tìm kiếm">
+                <button class="header-search-btn">TÌM KIẾM</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Section -->
+    <div class="search-section">
+        <div class="search-container">
+            <div class="left-controls">
+                <button class="btn-add" id="btnAdd">THÊM MỚI</button>
+                <div class="export-control">
+                    <span class="export-text">XUẤT RA FILE</span>
+                    <span class="export-arrow">></span>
+                </div>
+            </div>
+            <div class="right-controls">
+                <div class="search-box">
+                    <input type="text" class="search-input" placeholder="Tìm kiếm theo Tên" id="searchInput">
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="result-dropdown">
+                    <span>Kết quả</span>
+                    <select class="result-select" id="resultSelect">
+                        <option value="20">20</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="50">50</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Table -->
+        <div class="table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th width="50">
+                            <input type="checkbox" id="selectAll" title="Chọn tất cả">
+                        </th>
+                        <th width="120">Hành động</th>
+                        <th width="80">STT</th>
+                        <th width="150">Tên</th>
+                        <th width="150">Họ đệm</th>
+                        <th width="200">Địa chỉ</th>
+                        <th width="120">Hoạt động</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="row-checkbox" data-id="1">
+                        </td>
+                        <td>
+                            <button class="btn-action btn-view" title="Xem" data-id="1">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn-action btn-edit" title="Sửa" data-id="1">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn-action btn-delete" title="Xóa" data-id="1">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                        <td>1</td>
+                        <td>Mai</td>
+                        <td>Thúc Anh</td>
+                        <td>23 Hoàng Đạo Thúy, Thanh Xuân, Hà Nội</td>
+                        <td class="status-icon">
+                            <i class="fas fa-check status-success"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="row-checkbox" data-id="2">
+                        </td>
+                        <td>
+                            <button class="btn-action btn-view" title="Xem" data-id="2">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn-action btn-edit" title="Sửa" data-id="2">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn-action btn-delete" title="Xóa" data-id="2">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                        <td>2</td>
+                        <td>Hoàng</td>
+                        <td>Sinh Hồng</td>
+                        <td>23 Hoàng Đạo Thúy, Thanh Xuân, Hà Nội</td>
+                        <td class="status-icon">
+                            <i class="fas fa-times status-error"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="row-checkbox" data-id="3">
+                        </td>
+                        <td>
+                            <button class="btn-action btn-view" title="Xem" data-id="3">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn-action btn-edit" title="Sửa" data-id="3">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn-action btn-delete" title="Xóa" data-id="3">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                        <td>3</td>
+                        <td>Tịnh</td>
+                        <td>Mai Trung</td>
+                        <td>1411 Đường Láng, Cầu Giấy, Hà Nội</td>
+                        <td class="status-icon">
+                            <i class="fas fa-check status-success"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="row-checkbox" data-id="4">
+                        </td>
+                        <td>
+                            <button class="btn-action btn-view" title="Xem" data-id="4">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn-action btn-edit" title="Sửa" data-id="4">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn-action btn-delete" title="Xóa" data-id="4">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                        <td>4</td>
+                        <td>Hùng</td>
+                        <td>Nguyên Văn</td>
+                        <td>1411 Đường Láng, Cầu Giấy, Hà Nội</td>
+                        <td class="status-icon">
+                            <i class="fas fa-times status-error"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Delete Button -->
+        <div class="delete-section">
+            <button class="btn-delete-selected" id="deleteSelected">
+                DELETE SELECTED RECORDS
+            </button>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-container">
+            <div class="pagination-left">
+                <span id="paginationInfo">Kết quả 1 đến 4</span>
+            </div>
+            <div class="pagination-right">
+                <!-- Pagination controls can be added here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Add Transaction Modal -->
+    <div id="addTransactionModal" class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Thêm Nhân viên</h3>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addTransactionForm">
+                    <div class="form-field">
+                        <label for="name">Tên</label>
+                        <input type="text" id="name" name="name" required maxlength="30" placeholder="">
+                        <div class="error-message" id="nameError"></div>
+                    </div>
+                    
+                    <div class="form-field">
+                        <label for="lastName">Họ đệm</label>
+                        <input type="text" id="lastName" name="lastName" required maxlength="30" placeholder="">
+                        <div class="error-message" id="lastNameError"></div>
+                    </div>
+                    
+                    <div class="form-field">
+                        <label for="address">Địa chỉ</label>
+                        <input type="text" id="address" name="address" required placeholder="">
+                        <div class="error-message" id="addressError"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-cancel" id="cancelBtn">Hủy</button>
+                <button type="submit" class="btn-add-submit" form="addTransactionForm">Thêm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>TRƯỜNG ĐẠI HỌC THỦY LỢI</h3>
+            <p>Địa chỉ: 175 Tây Sơn, Đống Đa, Hà Nội</p>
+            <p>Điện thoại: (024) 38522201 - Fax: (024) 35633351</p>
+            <p>Email: phonghcth@tlu.edu.vn</p>
+        </div>
+    </footer>
+
+    <!-- jQuery and other JavaScript libraries -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>

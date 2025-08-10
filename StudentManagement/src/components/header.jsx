@@ -21,60 +21,46 @@ const Header = () => {
 
   return (
     <header className="header-container">
-      <nav className="navbar navbar-expand-lg">
-        <div className="container">
+      <nav className="navbar">
+        <div className="navbar-content">
           <Link className="navbar-brand" to="/">
-            TLU
+            QLSV
           </Link>
           
-          <button 
-            className="navbar-toggler" 
-            type="button" 
-            data-bs-toggle="collapse" 
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link 
-                  className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} 
-                  to="/"
-                >
-                  Home
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link 
-                  className={`nav-link ${location.pathname === '/students' ? 'active' : ''}`} 
-                  to="/students"
-                >
-                  Employees
-                </Link>
-              </li>
-            </ul>
-            
-            <div className="search-box">
-              <input 
-                type="text" 
-                className="search-input" 
-                placeholder="Tìm kiếm..." 
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                onKeyPress={handleKeyPress}
-              />
-              <button 
-                className="search-button"
-                onClick={handleSearch}
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link 
+                className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} 
+                to="/"
               >
-                Search
-              </button>
-            </div>
+                Trang chủ
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link 
+                className={`nav-link ${location.pathname === '/students' ? 'active' : ''}`} 
+                to="/students"
+              >
+                Sinh viên
+              </Link>
+            </li>
+          </ul>
+          
+          <div className="search-box">
+            <input 
+              type="text" 
+              className="search-input" 
+              placeholder="Tìm kiếm" 
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              onKeyPress={handleKeyPress}
+            />
+            <button 
+              className="search-button"
+              onClick={handleSearch}
+            >
+              Tìm kiếm
+            </button>
           </div>
         </div>
       </nav>

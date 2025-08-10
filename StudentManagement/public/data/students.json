@@ -1,0 +1,71 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "Nguyễn Văn An",
+      "email": "nguyenvanan@gmail.com",
+      "address": "123 Đường Láng, Hà Nội, Việt Nam",
+      "phone": "(024) 555-1234",
+      "major": "Công nghệ thông tin",
+      "class": "CNTT-K62",
+      "birthDate": "15/03/2004",
+      "gender": "Nam",
+      "gpa": 3.8,
+      "status": "Đang học"
+    },
+    {
+      "id": 2,
+      "name": "Trần Thị Bình",
+      "email": "tranthibinh@gmail.com",
+      "address": "456 Phố Huế, Hà Nội, Việt Nam",
+      "phone": "(024) 555-5678",
+      "major": "Kinh tế",
+      "class": "KT-K62",
+      "birthDate": "22/07/2004",
+      "gender": "Nữ",
+      "gpa": 3.9,
+      "status": "Đang học"
+    },
+    {
+      "id": 3,
+      "name": "Lê Hoàng Cường",
+      "email": "lehoangcuong@gmail.com",
+      "address": "789 Kim Mã, Hà Nội, Việt Nam",
+      "phone": "(024) 555-9012",
+      "major": "Xây dựng",
+      "class": "XD-K62",
+      "birthDate": "08/11/2003",
+      "gender": "Nam",
+      "gpa": 3.6,
+      "status": "Đang học"
+    },
+    {
+      "id": 4,
+      "name": "Phạm Thu Dung",
+      "email": "phamthudung@gmail.com",
+      "address": "321 Cầu Giấy, Hà Nội, Việt Nam",
+      "phone": "(024) 555-3456",
+      "major": "Thủy lợi",
+      "class": "TL-K62",
+      "birthDate": "30/05/2004",
+      "gender": "Nữ",
+      "gpa": 3.7,
+      "status": "Đang học"
+    },
+    {
+      "id": 5,
+      "name": "Hoàng Minh Đức",
+      "email": "hoangminhduc@gmail.com",
+      "address": "654 Nguyễn Trãi, Hà Nội, Việt Nam",
+      "phone": "(024) 555-7890",
+      "major": "Cơ khí",
+      "class": "CK-K62",
+      "birthDate": "12/09/2003",
+      "gender": "Nam",
+      "gpa": 3.5,
+      "status": "Đang học"
+    }
+  ],
+  "lastUpdated": "2024-01-10T00:00:00.000Z",
+  "totalStudents": 5
+}
